@@ -135,6 +135,7 @@ button_3.pack(side=tkinter.RIGHT, padx=10, pady=5)
 button_4 = tkinter.Button(master=app, command=app.destroy, text="start")
 button_4.pack(side=tkinter.BOTTOM, padx=10, pady=10)
 
+
 # TRAY ICON #
 # hover text
 hover_text = "autoclicker-notsopro"
