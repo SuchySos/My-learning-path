@@ -36,7 +36,7 @@ def check_element_for_minutes(url, tag, httpclass, inclass, minutes, interval, s
     :param save: expects str or 'False'
             saves to .csv with given name
 
-    :return: #166 examples of output #132 raw scraped data
+    :return: #163 examples of output #129 raw scraped data
     '''
 
     # Checking inputs
@@ -74,10 +74,7 @@ def check_element_for_minutes(url, tag, httpclass, inclass, minutes, interval, s
         print(f"error: {e}")
         quit()
 
-    element = str(element)
-    first_digit = -1
-
-    first_digit, last_digit, dot, comma = check_for_last_first_digit(element, first_digit)
+    first_digit, last_digit, dot, comma = check_for_last_first_digit(str(element), -1)
 
     if dot > comma:  # dot and comma are their place in string, defines what is decimal separator
         form = True
