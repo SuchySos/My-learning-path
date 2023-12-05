@@ -12,7 +12,7 @@ Choose your website, the page must refresh the data in real-time and not be prot
 e.g. finance.yahoo.com refresh data time to time, but class changes name every time when you open website. You can try to scrape it by using full xpath but you have to write the code yourself.
 The code's limitation is also the format of writing numbers, sometimes values above a thousand are written with a space between hundreds and a thousand with the format e.g. "41&nbsp;763.15", this limit is due to the primitiveness of the code. Other decimal separators like comma, dot or apostrophe are supported.
 
-Required packages:
+### Required packages:
 - beatifulsoup4
 - selenium
 - lxml (should be a part of bf4 if not install it manually)
@@ -35,9 +35,9 @@ Program prints to the terminal last created candle, and saved DataFrame.
 
 ## Comments
 
-Sometimes selenium could have problem with finding current element even if all inputs are correct.
-Code must be adapted if we want to check the data, e.g. once every 5 minutes.
-Durring long time use, selenium chrome may stop refreshing data.
+- Sometimes selenium could have problem with finding current element even if all inputs are correct.
+- Code must be adapted if we want to check the data, e.g. once every 5 minutes.
+- Durring long time use, selenium chrome may stop refreshing data.
 
 ## Usage examples
 
