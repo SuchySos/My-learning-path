@@ -6,12 +6,14 @@ import pandas as pd
 
 
 def check_for_last_first_digit(element, first_digit):
+    dot = -100
+    comma = -100
     while element[first_digit].isdigit() is False:
         first_digit -= 1
     first_digit += 1
     last_digit = first_digit - 1
 
-    while element[last_digit].isdigit() is True or element[last_digit] == ',' or element[last_digit] == '.':
+    while element[last_digit].isdigit() is True or element[last_digit] == ',' or element[last_digit] == '.' or element[last_digit] == "'":
         if element[last_digit] == '.':
             dot = last_digit
         if element[last_digit] == ',':
@@ -36,7 +38,7 @@ def check_element_for_minutes(url, tag, httpclass, inclass, minutes, interval, s
     :param save: expects str or 'False'
             saves to .csv with given name
 
-    :return: #163 examples of output #129 raw scraped data
+    :return: #168 examples of output #129 raw scraped data
     '''
 
     # Checking inputs
@@ -55,15 +57,15 @@ def check_element_for_minutes(url, tag, httpclass, inclass, minutes, interval, s
             print(error_message)
             quit()
         else:
-            print(var, 'type pass')
-    if minutes < 1 or interval < 1:
-        print('minutes and interval must be bigger than 0')
+            print(var, 'pass')
+    if minutes < 1 or interval < 1 or interval > 60:
+        print('minutes and interval must be bigger than 0, interval must be lesser than 60')
         quit()
 
     # Initialize Google Chrome and open the page
     driver = Chrome()
     driver.get(url)
-    time.sleep(3)
+    time.sleep(5)
 
     # Defining format, searching for digits
     soup = BeautifulSoup(driver.page_source, 'lxml')
@@ -73,7 +75,7 @@ def check_element_for_minutes(url, tag, httpclass, inclass, minutes, interval, s
     except Exception as e:
         print(f"error: {e}")
         quit()
-
+    print('element found: ', element)
     first_digit, last_digit, dot, comma = check_for_last_first_digit(str(element), -1)
 
     if dot > comma:  # dot and comma are their place in string, defines what is decimal separator
@@ -86,7 +88,7 @@ def check_element_for_minutes(url, tag, httpclass, inclass, minutes, interval, s
 
     current_time = datetime.now()
     time_to_next_min = (60 - current_time.second) % 60
-    print('Program starts in: ' + str(time_to_next_min) + ' s')
+    print('Program will start in: ' + str(time_to_next_min) + ' s')
     print('First respond in: ' + str(time_to_next_min + 60) + ' s')
     time.sleep(time_to_next_min)
 
@@ -101,7 +103,7 @@ def check_element_for_minutes(url, tag, httpclass, inclass, minutes, interval, s
             end_time = time.time() + 60
 
         # Empty table for raw data
-        df = pd.DataFrame(columns=['date', 'value'])
+        df = pd.DataFrame(columns=['value'])
 
         while time.time() < end_time:
             try:
@@ -115,14 +117,12 @@ def check_element_for_minutes(url, tag, httpclass, inclass, minutes, interval, s
 
                 if form is False:  # Correct decimal separator
                     element = element.replace('.', '')
+                    element = element.replace("'", '')
                     element = float(element.replace(',', '.'))
-                else:
-                    element = float(element.replace(',', ''))
 
-                # Prevent overlap - it seems to be in a random place, but it's not
-                if time.time() >= (end_time-0.8):
-                    time.sleep(1)
-                    break
+                else:
+                    element = element.replace("'", '')
+                    element = float(element.replace(',', ''))
 
                 current_time = datetime.now()
                 formatted_time = str(current_time.strftime("%Y-%m-%d %H:%M:%S"))
@@ -130,13 +130,18 @@ def check_element_for_minutes(url, tag, httpclass, inclass, minutes, interval, s
                 df.loc[formatted_time, 'value'] = element
                 time.sleep(interval-0.25)  # Waits x seconds before checking the item again
 
+                # Prevent overlap
+                if time.time() >= (end_time - (interval + 0.2)):
+                    time.sleep(1)
+                    break
+
             except Exception as e:
                 print(f"error: {e}")
 
-        open = df.iloc[1, 1]            # Organizing raw data
+        open = df.iloc[0, 0]            # Organizing raw data
         high = df['value'].max()
         low = df['value'].min()
-        close = df.iloc[-1, 1]
+        close = df.iloc[-1, 0]
         median = df['value'].median()
 
         current_time = current_time.replace(second=0)   # Time fix
@@ -167,6 +172,8 @@ def check_element_for_minutes(url, tag, httpclass, inclass, minutes, interval, s
     driver.quit()
 
 
-check_element_for_minutes('https://www.finanzen.net/devisen/realtimekurs/bitcoin-euro-kurs', 'div', 'data-field', 'Bid', 5, 1, '1mindataframe')
-# for Ask price     - 'div', 'data-field', 'Ask'
-# for current price - 'span', 'data-format', 'minimumFractionDigits:4'
+check_element_for_minutes('https://fr.investing.com/crypto/bitcoin', 'div', 'class', 'text-5xl/9', 5, 1, '1mindataframe')
+
+# 'https://www.finanzen.net/devisen/realtimekurs/bitcoin-euro-kurs', 'span', 'data-format', 'minimumFractionDigits:4', 5, 1
+# 'https://fr.investing.com/crypto/bitcoin', 'div', 'class', 'text-5xl/9', 5, 1
+# 'https://www.finanzen.ch/devisen/bitcoin-franken-kurs', 'span', 'data-format', 'maximumFractionDigits:2', 5, 1
