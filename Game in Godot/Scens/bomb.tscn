@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu4sxud12m0vk"]
+
+[ext_resource type="Texture2D" uid="uid://baaex7c4ypd4w" path="res://assects/bomb.png" id="1_lp6yl"]
+
+[node name="Bomb" type="Panel"]
+offset_right = 150.0
+offset_bottom = 150.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_lp6yl")

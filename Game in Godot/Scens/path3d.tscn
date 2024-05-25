@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ndo0dr0dsdb"]
+
+[ext_resource type="Script" path="res://Scripts/path3d.gd" id="1_865u0"]
+[ext_resource type="PackedScene" uid="uid://d225c3a23ltsh" path="res://Scens/bomb3d.tscn" id="1_n20bq"]
+
+[sub_resource type="Curve3D" id="Curve3D_wqucw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Path3D" type="Path3D"]
+curve = SubResource("Curve3D_wqucw")
+script = ExtResource("1_865u0")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-4.37087e-08, 0.999936, -4.37102e-08, 0, -4.37086e-08, -0.999972, -0.99994, -4.37086e-08, 1.91063e-15, 0, 0, 0)
+
+[node name="Node3D" parent="PathFollow3D" instance=ExtResource("1_n20bq")]
+transform = Transform3D(0.462428, 0.705132, -0.537609, 0.537609, -0.705133, -0.462429, -0.705117, -0.0751788, -0.705117, 0, 0, 0)

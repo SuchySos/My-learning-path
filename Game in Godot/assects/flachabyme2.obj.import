@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dp00xmgnh3f2m"
+path="res://.godot/imported/flachabyme2.obj-b209e8021c4fe612536cc1397a560866.mesh"
+
+[deps]
+
+files=["res://.godot/imported/flachabyme2.obj-b209e8021c4fe612536cc1397a560866.mesh"]
+
+source_file="res://assects/flachabyme2.obj"
+dest_files=["res://.godot/imported/flachabyme2.obj-b209e8021c4fe612536cc1397a560866.mesh", "res://.godot/imported/flachabyme2.obj-b209e8021c4fe612536cc1397a560866.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

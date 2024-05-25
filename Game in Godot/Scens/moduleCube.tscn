@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://21jfscbhe54g"]
+
+[ext_resource type="ArrayMesh" uid="uid://ddl1psyh84t5q" path="res://assects/cube.obj" id="1_6hl2f"]
+[ext_resource type="Script" path="res://Scripts/moduleCube.gd" id="1_7c5ou"]
+[ext_resource type="Texture2D" uid="uid://cx7hyespbnh7m" path="res://assects/64px_blu_1.png" id="2_7hou7"]
+[ext_resource type="PackedScene" uid="uid://b47yqj6mqhla7" path="res://assects/Tree3.glb" id="4_0mx0p"]
+[ext_resource type="PackedScene" uid="uid://b200nek3ouot2" path="res://assects/Tree2.glb" id="5_qsqhj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6kxb"]
+albedo_texture = ExtResource("2_7hou7")
+texture_repeat = false
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d3hig"]
+size = Vector3(2, 2, 2)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_7c5ou")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+visible = false
+
+[node name="Cube" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("1_6hl2f")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_f6kxb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_d3hig")
+
+[node name="Tree3" parent="." instance=ExtResource("4_0mx0p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Tree2" parent="." instance=ExtResource("5_qsqhj")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0.1)

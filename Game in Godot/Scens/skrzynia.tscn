@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://do3dal8g65w7f"]
+
+[ext_resource type="Script" path="res://Scripts/chest.gd" id="1_cbman"]
+[ext_resource type="PackedScene" uid="uid://d2lljwjbcy2mk" path="res://assects/chest.glb" id="1_duagd"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_cbman")
+
+[node name="chest" parent="." instance=ExtResource("1_duagd")]
+transform = Transform3D(-0.65, 0, -5.68248e-08, 0, 0.65, 0, 5.68248e-08, 0, -0.65, 0, 0.65, 0)

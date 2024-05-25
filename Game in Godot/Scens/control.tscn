@@ -1,0 +1,239 @@
+[gd_scene load_steps=4 format=3 uid="uid://l6y2qwcuwy48"]
+
+[ext_resource type="Script" path="res://Scripts/control.gd" id="1_wystl"]
+[ext_resource type="PackedScene" uid="uid://uft2tap3kcfd" path="res://Scens/deadscreen.tscn" id="2_f7maf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wwnov"]
+font_size = 40
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_wystl")
+
+[node name="ButtonCon" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="VButtonCon1" type="VBoxContainer" parent="ButtonCon"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ButtonLU" type="Button" parent="ButtonCon/VButtonCon1"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+
+[node name="ButtonLD" type="Button" parent="ButtonCon/VButtonCon1"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+
+[node name="VButtonCon2" type="VBoxContainer" parent="ButtonCon"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ButtonRU" type="Button" parent="ButtonCon/VButtonCon2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+
+[node name="ButtonRD" type="Button" parent="ButtonCon/VButtonCon2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="infoBox" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -358.0
+offset_right = 358.0
+offset_bottom = 300.0
+grow_horizontal = 2
+
+[node name="BoxCharacter" type="BoxContainer" parent="infoBox"]
+custom_minimum_size = Vector2(196, 100)
+layout_mode = 1
+offset_right = 196.0
+offset_bottom = 76.0
+
+[node name="Character" type="Button" parent="infoBox/BoxCharacter"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "CH"
+
+[node name="Eq" type="Button" parent="infoBox/BoxCharacter"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "EQ"
+
+[node name="BoxMenu" type="BoxContainer" parent="infoBox"]
+custom_minimum_size = Vector2(196, 46)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -204.0
+offset_bottom = 100.0
+grow_horizontal = 0
+
+[node name="QuestionMark" type="Button" parent="infoBox/BoxMenu"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "?"
+
+[node name="Menu" type="Button" parent="infoBox/BoxMenu"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "menu"
+
+[node name="BoxEnergy" type="BoxContainer" parent="infoBox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 346.0
+offset_bottom = 50.0
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="BoxMana" type="BoxContainer" parent="infoBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.860335
+anchor_top = 0.333333
+anchor_right = 0.860335
+anchor_bottom = 0.666667
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 100
+metadata/_edit_use_anchors_ = true
+
+[node name="BoxHp" type="BoxContainer" parent="infoBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.430168
+anchor_top = 0.666667
+anchor_right = 0.430168
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 102
+metadata/_edit_use_anchors_ = true
+
+[node name="scoreinfo" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -338.0
+offset_right = 102.0
+offset_bottom = -238.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="scoreinfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_wwnov")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="usableBox" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -358.0
+offset_top = -200.0
+offset_right = 358.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="usableTexture" type="HBoxContainer" parent="usableBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 142
+
+[node name="usableButton" type="HBoxContainer" parent="usableBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button1" type="Button" parent="usableBox/usableButton"]
+layout_mode = 2
+size_flags_horizontal = 3
+action_mode = 0
+
+[node name="Button2" type="Button" parent="usableBox/usableButton"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button3" type="Button" parent="usableBox/usableButton"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button4" type="Button" parent="usableBox/usableButton"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button5" type="Button" parent="usableBox/usableButton"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Deadscreen" parent="." instance=ExtResource("2_f7maf")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_down" from="ButtonCon/VButtonCon1/ButtonLU" to="." method="_on_button_lu_button_down"]
+[connection signal="button_up" from="ButtonCon/VButtonCon1/ButtonLU" to="." method="_on_button_lu_button_up"]
+[connection signal="pressed" from="ButtonCon/VButtonCon1/ButtonLU" to="." method="_on_button_lu_pressed"]
+[connection signal="button_down" from="ButtonCon/VButtonCon1/ButtonLD" to="." method="_on_button_ld_button_down"]
+[connection signal="button_up" from="ButtonCon/VButtonCon1/ButtonLD" to="." method="_on_button_ld_button_up"]
+[connection signal="pressed" from="ButtonCon/VButtonCon1/ButtonLD" to="." method="_on_button_ld_pressed"]
+[connection signal="button_down" from="ButtonCon/VButtonCon2/ButtonRU" to="." method="_on_button_ru_button_down"]
+[connection signal="button_up" from="ButtonCon/VButtonCon2/ButtonRU" to="." method="_on_button_ru_button_up"]
+[connection signal="pressed" from="ButtonCon/VButtonCon2/ButtonRU" to="." method="_on_button_ru_pressed"]
+[connection signal="button_down" from="ButtonCon/VButtonCon2/ButtonRD" to="." method="_on_button_rd_button_down"]
+[connection signal="button_up" from="ButtonCon/VButtonCon2/ButtonRD" to="." method="_on_button_rd_button_up"]
+[connection signal="pressed" from="ButtonCon/VButtonCon2/ButtonRD" to="." method="_on_button_rd_pressed"]
+[connection signal="pressed" from="infoBox/BoxMenu/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="usableBox/usableButton/Button1" to="." method="_on_button_1_pressed"]

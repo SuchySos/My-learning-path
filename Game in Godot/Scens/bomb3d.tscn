@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d225c3a23ltsh"]
+
+[ext_resource type="Script" path="res://Scripts/bomb3d.gd" id="1_h43gc"]
+[ext_resource type="PackedScene" uid="uid://6x30p0p3fkj" path="res://assects/bomba.glb" id="1_ijfk6"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_h43gc")
+
+[node name="bomba" parent="." instance=ExtResource("1_ijfk6")]
+transform = Transform3D(-0.0334857, 0.0399067, 0.295442, 0.229813, 0.192836, 0, -0.189907, 0.226322, -0.0520945, 0, 0, 0)

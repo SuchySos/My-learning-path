@@ -19,7 +19,7 @@ I don't know about the legality of scrapping.
 
 ## Game in Godot
 
-Game written entirely in GDScript. Only shaders were in C#. The models were made in Blender.
+Game written entirely in GDScript, only shaders were in C#. The models were made in Blender. I managed to export it to Android in .apk format that is in APK file (I removed the Android export template so that it doesn't unnecessarily clog Github).
 
 Godot recently released a new version, so work on the project was based mainly on documentation that is not complete and on trial and error.
 

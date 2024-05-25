@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://knp0d1hhhb6m"]
+
+[ext_resource type="Script" path="res://Scripts/moduleFlor.gd" id="1_m7obc"]
+[ext_resource type="Texture2D" uid="uid://dmmpfo5l3yk4r" path="res://assects/64px_grass6.png" id="3_aihpv"]
+[ext_resource type="ArrayMesh" uid="uid://dkadgjf3pfwf2" path="res://assects/flor.obj" id="3_ceaws"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lxox"]
+albedo_texture = ExtResource("3_aihpv")
+texture_filter = 2
+texture_repeat = false
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_52krk"]
+size = Vector3(2, 0.5, 2)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_m7obc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Flor" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = ExtResource("3_ceaws")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_2lxox")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_52krk")

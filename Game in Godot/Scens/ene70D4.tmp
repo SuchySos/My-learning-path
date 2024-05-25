@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://joqobmhkgi05"]
+
+[ext_resource type="Script" path="res://Scripts/enem.gd" id="1_lu6ol"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_47tga"]
+bottom_radius = 1.0
+
+[node name="Enem" type="Node3D"]
+script = ExtResource("1_lu6ol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_47tga")
+
+[node name="Ray_X1" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(2, 0, 0)
+hit_from_inside = true
+hit_back_faces = false
+
+[node name="Ray_X2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(-2, 0, 0)
+hit_from_inside = true
+hit_back_faces = false
+
+[node name="Ray_Z1" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, 2)
+hit_from_inside = true
+hit_back_faces = false
+
+[node name="Ray_Z2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, 0, -2)
+hit_from_inside = true
+hit_back_faces = false
+
+[node name="Ray_X3" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
+target_position = Vector3(0, -1.5, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 1, 0, 1)
+debug_shape_thickness = 5
+
+[node name="Ray_X4" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 0)
+target_position = Vector3(0, -1.5, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 1, 0, 1)
+debug_shape_thickness = 5
+
+[node name="Ray_Z3" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2)
+target_position = Vector3(0, -1.5, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 1, 0, 1)
+debug_shape_thickness = 5
+
+[node name="Ray_Z4" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+target_position = Vector3(0, -1.5, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 1, 0, 1)
+debug_shape_thickness = 5

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw7387u3qklsr"]
+
+[ext_resource type="ArrayMesh" uid="uid://c24jkb85y7ee7" path="res://assects/HitMarkerCorner.obj" id="1_y8kqv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44vwa"]
+render_priority = 1
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+depth_draw_mode = 1
+albedo_color = Color(1, 0, 0, 0.196078)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="HitMarkerCorner" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_y8kqv")
+surface_material_override/0 = SubResource("StandardMaterial3D_44vwa")
+
+[node name="HitMarkerCorner2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_y8kqv")
+surface_material_override/0 = SubResource("StandardMaterial3D_44vwa")
+
+[node name="HitMarkerCorner3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_y8kqv")
+surface_material_override/0 = SubResource("StandardMaterial3D_44vwa")
+
+[node name="HitMarkerCorner4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+mesh = ExtResource("1_y8kqv")
+surface_material_override/0 = SubResource("StandardMaterial3D_44vwa")

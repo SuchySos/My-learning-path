@@ -1,0 +1,16 @@
+[gd_scene load_steps=6 format=3 uid="uid://drhi4mqhtmlhy"]
+
+[ext_resource type="Script" path="res://Scripts/flacha.gd" id="1_n0rut"]
+[ext_resource type="ArrayMesh" uid="uid://butuectyqd4xr" path="res://assects/flach.obj" id="2_bbxyu"]
+[ext_resource type="Material" uid="uid://sj3gv4n7agyq" path="res://assects/flacha.tres" id="3_3jukw"]
+[ext_resource type="Material" uid="uid://db2juj0gvitli" path="res://assects/liquid.tres" id="4_qw6lc"]
+[ext_resource type="Material" uid="uid://duyj6xlcmmn0o" path="res://assects/cap.tres" id="5_g6ksq"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_n0rut")
+
+[node name="Flach" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_bbxyu")
+surface_material_override/0 = ExtResource("3_3jukw")
+surface_material_override/1 = ExtResource("4_qw6lc")
+surface_material_override/2 = ExtResource("5_g6ksq")
