@@ -68,3 +68,8 @@ World is generated inside of GridMap.gd script.
 
 It generates bands that limit the player, modules on the board, and ensures that there is no possibility of a dead end.
 
+### Appearance
+
+I also experimented with the look of the game but it didn't go well with the look of the game.
+
+![Element](./images/exp.png)
