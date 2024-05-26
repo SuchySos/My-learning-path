@@ -1,4 +1,6 @@
-# Overview
+# includes a description of both codes
+
+# Overview - scraper
 
 This project scrapes real-time data, using beatifulsoup4 with selenium. Scraped data is saved in .csv file with candlestick pattern that can be use to real-time analysis bot.
 
@@ -43,4 +45,30 @@ Program prints to the terminal last created candle, and saved DataFrame.
 
 At the end of the code you can find tree working input examples.
 
+# Overview - bot
 
+The bot was supposed to make decisions in real time, but instead it only learns based on prepared data. Sample data is in the .csv file
+
+## Introduction
+
+The bot theoretically operates the money in the account in accordance with the rules of forex exchange with appropriate leverage. Bot decides when to buy and sell, it can also wait. It is limited by the budget, can have one open position and has a set stoploss. To end the previous position, it must perform the opposite action to the initiating action (if bought, it must sell to close the position).
+
+One step is one pass on the candlestick chart, one episode is one pass through the entire set of data during which it earns rewards. Theoretically, the reward is the balance of your bank account, imagine those are real money.
+
+![Element](./images/reward.png)
+
+## Requirements
+
+Bot requires a data sample in .csv format.
+
+### Required packages:
+
+- gym
+- numpy
+- pandas
+- tensorflow
+- keras
+
+## Comments
+
+At the bottom there is the initialization of the bot and its training, at the top there are the agent and environment classes.
