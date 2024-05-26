@@ -108,34 +108,6 @@ func scorecounter(points):
 		scoreInfoLabel.text = str(points)
 
 
-#func _on_button_lu_pressed():
-	#if not animator.is_playing():
-		#var xz = 0
-		#emit_signal("Buttonpress", xz)
-		#print("LU ok")
-#
-#
-#func _on_button_ld_pressed():
-	#if not animator.is_playing():
-		#var xz = 1
-		#emit_signal("Buttonpress", xz)
-		#print("LD ok")
-#
-#
-#func _on_button_ru_pressed():
-	#if not animator.is_playing():
-		#var xz = 2
-		#emit_signal("Buttonpress", xz)
-		#print("RU ok")
-#
-#
-#func _on_button_rd_pressed():
-	#if not animator.is_playing():
-		#var xz = 3
-		#emit_signal("Buttonpress", xz)
-		#print("RD ok")
-
-
 func _on_button_lu_button_down():
 	state = true
 	while state:
